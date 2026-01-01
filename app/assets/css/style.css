@@ -1,0 +1,548 @@
+:root {
+    --primary: rgb(78, 192, 240);
+    --primary-hover: #5cd400;
+    --rosa-neon: #db436e;
+    --azul-neon: rgb(78, 192, 240);
+    --vermelho-neon: #d75050;
+    --dark: #1A1A1A;
+    --darker: #111;
+    --light: #F4F4F4;
+    --gray: #252525;
+    --text-gray: #ccc;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --whatsapp-green: #25D366;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 2. HEADER --- */
+header {
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26, 26, 26, 0.95);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid #333;
+}
+
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
+.nav-link { color: #fff; text-decoration: none; margin-left: 20px; transition: 0.3s; font-size: 0.95rem; }
+.nav-link:hover { color: var(--primary); }
+
+/* --- 3. HERO SLIDER --- */
+.hero {
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.slide {
+    filter: blur(1px) brightness(1);
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active { 
+    filter: blur(1px) brightness(1);
+    opacity: 1;
+    }
+
+.hero-overlay {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+    max-width: 90%;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; text-transform: uppercase; }
+.hero p { font-size: 1.1rem; color: #ddd; }
+
+
+/* --- 4. FILTROS E GALERIA --- */
+.main-content { flex: 1; padding: 60px 0; }
+
+.section-header { text-align: center; margin-bottom: 30px; }
+.section-title { font-size: 2rem; margin-bottom: 15px; }
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--gray);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #222;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.card.visible { animation: fadeUp 0.6s forwards; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    border-color: var(--primary);
+}
+
+.card-img-wrapper { height: 250px; overflow: hidden; }
+.card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.card:hover img { transform: scale(1.05); }
+
+.card-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.card-category { 
+    font-size: 0.75rem; text-transform: uppercase; color: var(--primary); 
+    letter-spacing: 1px; margin-bottom: 5px; display: block;
+}
+.card-title { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
+.card-desc { font-size: 0.9rem; color: #aaa; line-height: 1.4; margin-bottom: 10px; flex: 1; }
+
+.card-price {
+    font-size: 1.1rem; font-weight: bold; color: #fff;
+    margin-top: auto; padding-top: 10px; border-top: 1px solid #333;
+}
+
+
+/* --- 5. SEÇÃO SOBRE E MATERIAIS (LAYOUT WIDE) --- */
+.about-section {
+background-color: var(--darker);
+border-top: 1px solid #333;
+padding-bottom: 80px;
+}
+
+.about-header {
+    text-align: center;
+    padding: 80px 20px 50px;
+}
+
+.about-title { font-size: 2.2rem; margin-bottom: 15px; color: #fff; }
+.about-subtitle { 
+    font-size: 1.1rem; color: var(--primary); margin-bottom: 20px; 
+    text-transform: uppercase; letter-spacing: 1px; max-width: 800px; margin-left: auto; margin-right: auto;
+}
+
+.materials-wide-container {
+    display: flex; flex-direction: column; width: 100%;
+}
+
+.mat-block {
+    display: flex; width: 100%; min-height: 400px;
+    background: var(--dark); border-bottom: 1px solid #333;
+}
+
+/* Zig-Zag: Pares invertidos e com fundo cinza */
+.mat-block:nth-child(even) {
+    flex-direction: row-reverse;
+    background: var(--gray);
+}
+
+.mat-img-box {
+    flex: 1; position: relative; overflow: hidden;
+}
+
+.mat-img-box img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.mat-block:hover .mat-img-box img { transform: scale(1.05); }
+
+/* --- O DEGRADÊ MÁGICO (DESKTOP) --- */
+
+/* Cria o elemento do degradê sobre a imagem */
+.mat-img-box::after {
+    content: ''; position: absolute;
+    top: 0; bottom: 0; width: 40%; /* Ocupa 40% da largura da imagem */
+    z-index: 2; pointer-events: none;
+}
+
+/* ÍMPARES (1, 3): Imagem na Esquerda -> Degradê na direita da imagem (funde com var--dark) */
+.mat-block:nth-child(odd) .mat-img-box::after {
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--dark));
+}
+
+/* PARES (2): Imagem na Direita -> Degradê na esquerda da imagem (funde com var--gray) */
+.mat-block:nth-child(even) .mat-img-box::after {
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--gray));
+}
+
+
+.mat-text-box {
+    flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 3; /* Garante que o texto fique acima de tudo */
+}
+
+.mat-text-box h3 {
+    font-size: 2rem; color: #fff; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 15px;
+}
+/*.mat-text-box h3 i { color: var(--primary); }*/
+.mat-text-box p { font-size: 1.1rem; line-height: 1.8; color: #ccc; }
+
+.mat-tags { margin-top: 25px; display: flex; gap: 10px; flex-wrap: wrap; }
+/*.mat-tag {
+    background: rgba(255, 107, 107, 0.1); color: var(--primary);
+    padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--primary);
+}*/
+
+
+/* --- 6. FOOTER --- */
+footer {
+    background-color: var(--darker);
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-col h3 { color: var(--primary); margin-bottom: 20px; font-size: 1.2rem; }
+.footer-col p { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+
+.footer-links a { display: block; color: var(--text-gray); text-decoration: none; margin-bottom: 10px; transition: 0.2s; }
+.footer-links a:hover { color: var(--primary); padding-left: 5px; }
+
+.social-icons a {
+    display: inline-block;
+    width: 35px; 
+    height: 35px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+/*Cores dos icones de redes sociais de contato*/
+.social-icons a.instagram:hover {
+    background-color: #E1306C;
+    box-shadow: 0 0 15px rgba(249, 15, 144, 0.797);
+    border-color: #E1306C;
+}
+
+.social-icons a.whatsapp:hover {
+    background-color: #25D366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+    border-color: #25D366;
+}
+
+.social-icons a.facebook:hover {
+    background-color: #1877F2;
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
+    border-color: #1877F2; }
+
+.footer-bottom {
+    text-align: center; margin-top: 50px; padding-top: 20px;
+    border-top: 1px solid #222; color: #666; font-size: 0.85rem;
+}
+
+/* --- 7. BOTÃO FLUTUANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+    background-color: var(--whatsapp-green); color: #FFF; border-radius: 50px;
+    text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #111;
+    z-index: 10000; display: flex; align-items: center; justify-content: center;
+    text-decoration: none; transition: transform 0.3s ease;
+}
+.whatsapp-float:hover { transform: scale(1.1); background-color: #1ebe57; }
+
+/* --- 8. MODAL --- */
+.modal {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
+    padding: 20px; backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--dark); width: 100%; max-width: 1000px; border-radius: 12px;
+    display: flex; flex-direction: row; overflow: hidden; position: relative;
+    border: 1px solid #444; max-height: 90vh;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.modal-gallery {
+    flex: 1.5; background: #000; display: flex; flex-direction: column; padding: 10px;
+}
+
+.main-img-container {
+    flex: 1; overflow: hidden; position: relative; cursor: zoom-in;
+    display: flex; align-items: center; justify-content: center; min-height: 300px;
+}
+
+.main-img-container img {
+    width: 100%; height: 100%; object-fit: contain;
+    transition: transform 0.1s ease-out; display: block;
+}
+
+.thumbnails {
+    display: flex; gap: 10px; margin-top: 10px; overflow-x: auto; padding: 5px 0;
+}
+.thumbnails::-webkit-scrollbar { height: 6px; }
+.thumbnails::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+.thumb {
+    width: 70px; height: 70px; object-fit: cover; border-radius: 6px;
+    cursor: pointer; opacity: 0.5; transition: 0.3s; border: 2px solid transparent; flex-shrink: 0;
+}
+.thumb:hover, .thumb.active { opacity: 1; border-color: var(--primary); }
+
+.modal-info {
+    flex: 1; padding: 40px; overflow-y: auto; border-left: 1px solid #333;
+}
+
+.close-btn {
+    /* Posicionamento */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 10;
+
+    /* Tamanho e Forma */
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+
+    /* Estilo */
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 1.8rem; /* Ajustei levemente para ficar proporcional */
+    cursor: pointer;
+    transition: 0.2s;
+
+    /* --- O SEGREDINHO DA CENTRALIZAÇÃO --- */
+    display: flex;
+    align-items: center;      /* Centraliza no meio Vertical */
+    justify-content: center;  /* Centraliza no meio Horizontal */
+    line-height: 1;           /* Reseta altura de linha para não empurrar */
+    padding-bottom: 3px;      /* Pequeno ajuste visual (o 'x' geralmente é desenhado alto) */
+}
+.close-btn:hover { background: var(--primary); }
+
+.modal-badge {
+    background: var(--primary); color: white; padding: 4px 10px;
+    border-radius: 4px; font-size: 0.8rem; text-transform: uppercase;
+    font-weight: bold; display: inline-block; margin-bottom: 10px;
+}
+
+.modal-title { font-size: 1.8rem; color: #fff; margin-bottom: 10px; }
+.modal-desc { line-height: 1.7; color: #ccc; margin-bottom: 25px; }
+
+.modal-price {
+    font-size: 2rem; color: var(--whatsapp-green); font-weight: 800;
+    margin-bottom: 20px; display: block;
+}
+
+.specs-box { background: #252525; padding: 20px; border-radius: 8px; border: 1px solid #333; }
+.specs-box h4 { color: var(--primary); margin-bottom: 10px; font-size: 0.9rem; text-transform: uppercase; }
+.specs-list li { list-style: none; margin-bottom: 8px; color: #bbb; font-size: 0.9rem; display: flex; align-items: center; }
+.specs-list li i { margin-right: 10px; color: var(--primary); width: 20px; text-align: center; }
+
+/* --- ESTILOS DO FAQ --- */
+.faq-section {
+    padding: 80px 20px;
+    background-color: var(--dark);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #fff; }
+
+.faq-item {
+    background: var(--gray);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+.faq-item:hover { border-color: var(--primary); }
+
+.faq-question {
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.faq-question i { transition: transform 0.3s; color: var(--primary); }
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #1f1f1f;
+    color: #ccc;
+    padding: 0 20px;
+}
+
+/* Estado Ativo do FAQ */
+.faq-item.active .faq-answer { padding: 20px; max-height: 300px; }
+.faq-item.active .faq-question i { transform: rotate(180deg); }
+
+
+/* --- ESTILOS DO MODAL DE POLÍTICAS --- */
+.text-modal-content {
+    background: var(--dark); width: 90%; max-width: 800px; border-radius: 12px;
+    padding: 40px; position: relative; border: 1px solid #444; max-height: 90vh; overflow-y: auto; margin-top: 5%;
+}
+.text-modal-content h2 { color: var(--primary); margin-bottom: 50px; }
+.text-modal-content h3 { color: #fff; margin-top: 20px; margin-bottom: 10px; }
+.text-modal-content p { color: #ccc; line-height: 1.6; margin-bottom: 15px; }
+
+/* Pointer para os links do footer */
+.policy-link { cursor: pointer; }
+
+/* --- 9. MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    header { padding: 15px 20px; }
+    .nav-link { display: none; }
+    
+    .filter-container {
+        justify-content: flex-start; overflow-x: auto; padding-bottom: 10px;
+        white-space: nowrap; -webkit-overflow-scrolling: touch;
+    }
+    .filter-container::-webkit-scrollbar { display: none; }
+    .filter-btn { flex-shrink: 0; }
+
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .card-img-wrapper { height: 140px; }
+    .card-info { padding: 10px; }
+    .card-title { font-size: 0.9rem; line-height: 1.2; }
+    .card-category { font-size: 0.6rem; }
+    .card-desc { display: none; }
+    .card-price { font-size: 0.9rem; padding-top: 5px; }
+
+    .modal { padding: 0; align-items: flex-start; }
+    .modal-content {
+        flex-direction: column; width: 100%; height: 100vh;
+        max-height: 100vh; border-radius: 0; border: none;
+    }
+    .modal-gallery {
+        width: 100%; height: 50vh; flex: none; padding: 10px; background: #000;
+    }
+    .main-img-container { flex: 1; min-height: 0; margin-bottom: 10px; }
+    .main-img-container img { max-height: 100%; width: auto; margin: 0 auto; }
+    
+    .modal-info {
+        width: 100%; height: 50vh; flex: 1; padding: 25px;
+        overflow-y: auto; border-left: none; border-top: 2px solid #333;
+        background: var(--dark);
+    }
+    .close-btn { top: 10px; right: 10px; background: rgba(0,0,0,0.7); }
+    .modal-title { font-size: 1.5rem; }
+    .modal-price { font-size: 1.5rem; margin-bottom: 15px; }
+    .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
+    
+    .about-title { font-size: 1.6rem; }
+    .about-subtitle { font-size: 0.9rem; margin-bottom: 30px; }
+    
+    /* Ajuste dos Blocos Wide no Mobile (Empilha: Foto em cima, texto embaixo) */
+    .mat-block { flex-direction: column !important; min-height: auto; }
+    .mat-img-box { height: 250px; flex: none; }
+    .mat-text-box { padding: 30px 20px; flex: none; }
+    
+    /* --- CORREÇÃO DO DEGRADÊ NO MOBILE (Vertical) --- */
+    .mat-block:nth-child(odd) .mat-img-box::after,
+    .mat-block:nth-child(even) .mat-img-box::after {
+        width: 100%;      /* Ocupa largura total */
+        height: 50%;      /* Ocupa metade da altura */
+        top: auto;        /* Remove alinhamento do topo */
+        bottom: 0;        /* Cola no fundo */
+        left: 0; right: 0;
+    }
+
+    /* ÍMPARES Mobile: Fundo para Baixo (Dark) */
+    .mat-block:nth-child(odd) .mat-img-box::after {
+        background: linear-gradient(to bottom, transparent, var(--dark));
+    }
+
+    /* PARES Mobile: Fundo para Baixo (Gray) */
+    .mat-block:nth-child(even) .mat-img-box::after {
+        background: linear-gradient(to bottom, transparent, var(--gray));
+    }
+    }

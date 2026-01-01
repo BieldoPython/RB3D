@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Print Studio | Vitrine</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+
+    <header>
+        <div class="logo"><i class="fa-sharp fa-solid fa-cube"></i> R&B 3D</div>
+        <nav>
+            <a href="#products" class="nav-link">Vitrine</a>
+            <a href="#about" class="nav-link">Materiais</a>
+            <a href="#contact" class="nav-link">Contato</a>
+            <a href="#faq" class="nav-link">Dúvidas</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="slide active" style="background-image: url('/app 3/img/banner1.png');"></div>
+        <div class="slide" style="background-image: url('https://cdn1.bambulab.com/a1/img/intuitiveUI-bg-419e0768e261e.jpg');"></div>
+        <div class="slide" style="background-image: url('/app 3/img/banner2.png');"></div>
+        <div class="slide" style="background-image: url('https://d2yghbees9788u.cloudfront.net/avozdaindustria/2019/08/impressao3d-industria-manufatura-avancada.jpg');"></div>
+
+        <div class="hero-overlay">
+            <h1>Impressão 3D Profissional</h1>
+            <p>Do protótipo à peça final, qualidade em cada camada.</p>
+        </div>
+    </section>
+
+    <div class="main-content" id="products">
+        <div class="section-header">
+            <h2 class="section-title">Nosso Catálogo</h2>
+            <p style="color:#888;">Navegue pelas categorias abaixo</p>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterItems('todos')">Todos</button>
+            <button class="filter-btn" onclick="filterItems('decoracao')">Decoração</button>
+            <button class="filter-btn" onclick="filterItems('brinquedos')">Brinquedos</button>
+            <button class="filter-btn" onclick="filterItems('suportes')">Suportes</button>
+        </div>
+
+        <div class="container">
+            <div class="grid" id="product-grid"></div>
+        </div>
+    </div>
+
+    <section class="about-section" id="about">
+        
+        <div class="about-header">
+            <h2 class="about-title">Conheça o Mundo da Impressão</h2>
+            <p class="about-subtitle">Conheça os materiais usados para transformar qualquer desejo em realidade</p>
+        </div>
+
+        <div class="materials-wide-container">
+            
+            <div class="mat-block">
+                <div class="mat-img-box">
+                    <img src="/app 3/img/pla3.png">
+                </div>
+                <div class="mat-text-box">
+                    <h3><i class="fas fa-leaf" style="color: var(--rosa-neon);"></i> PLA (Decorativo)</h3>
+                    <p>O filamento mais popular do mundo. O PLA (Ácido Polilático) é biodegradável, feito de fontes renováveis como amido de milho. Sua principal característica é a facilidade de impressão e o acabamento visual impecável, com cores vibrantes e texturas variadas.</p>
+                    <div class="mat-tags">
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--rosa-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--rosa-neon);">Biodegradável</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--rosa-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--rosa-neon);">Cores Vivas</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--rosa-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--rosa-neon);">Acabamento Liso</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mat-block">
+                <div class="mat-img-box">
+                    <img src="/app 3/img/petg.png">
+                </div>
+                <div class="mat-text-box">
+                    <h3><i class="fas fa-flask" style="color: var(--azul-neon);"></i> PETG (Resistente)</h3>
+                    <p>O meio termo perfeito. O PETG é o mesmo material das garrafas de água, unindo a facilidade de impressão do PLA com uma resistência mecânica superior. É flexível na medida certa, não quebra fácil e suporta umidade, sendo ideal para peças de uso diário.</p>
+                    <div class="mat-tags"> 
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--azul-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--azul-neon);">Durável</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--azul-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--azul-neon);">Resistente a Umidade</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--azul-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--azul-neon);">Uso Mecânico</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mat-block">
+                <div class="mat-img-box">
+                    <img src="/app 3/img/abs.png">
+                </div>
+                <div class="mat-text-box">
+                    <h3><i class="fas fa-shield-alt" style="color: var(--vermelho-neon);"></i> ABS (Industrial)</h3>
+                    <p>Para quando a coisa fica séria. O ABS é um termoplástico de engenharia derivado do petróleo, famoso por sua robustez (é o plástico do LEGO). Ele aguenta temperaturas mais altas sem deformar e pode ser lixado e pintado com facilidade.</p>
+                    <div class="mat-tags">
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--vermelho-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--vermelho-neon);">Alta Temperatura</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--vermelho-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--vermelho-neon);">Pós-Processamento</span>
+                        <span class="mat-tag" style=" background:#1A1A1A; color: var(--vermelho-neon);
+                        padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--vermelho-neon);">Engenharia</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="https://wa.me/5511999999999?text=Olá!%20Vi%20seus%20produtos%20no%20site%20e%20gostaria%20de%20saber%20mais." id="float-btn" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section class="faq-section" id="faq">
+        <h2 class="faq-title">Perguntas Frequentes</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">Vocês fazem modelagem 3D ou só impressão? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                <p>Nosso foco principal é a impressão. Se você já tem o arquivo pronto (.STL ou .OBJ), é só enviar! Porém, para projetos simples, podemos ajudar na modelagem ou indicar parceiros.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Qual o prazo de entrega? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                <p>O prazo depende do tamanho e complexidade da peça. Pequenos objetos levam de 1 a 2 dias. Projetos grandes podem levar até 5 dias úteis. Informaremos o prazo exato no orçamento.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Enviam para todo o Brasil? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                <p>Sim! Enviamos via Correios (PAC ou SEDEX) e Transportadoras. Para a cidade local, temos opção de retirada ou motoboy.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">As peças são resistentes? <i class="fas fa-chevron-down"></i></div>
+            <div class="faq-answer">
+                <p>Sim, mas depende do material. O PLA é ótimo para decoração mas não deve ficar no sol quente do carro. O ABS e PETG são muito resistentes para uso mecânico. Nós te ajudaremos a escolher o material certo.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>3D Print Studio</h3>
+                <p>Especialistas em transformar arquivos digitais em objetos físicos de alta qualidade. Atendemos hobbyists, engenheiros e designers.</p>
+            </div>
+
+            <div class="footer-col footer-links">
+                <h3>Institucional</h3>
+                <a class="policy-link" onclick="openPolicy('terms')">Termos e Condições</a>
+                <a class="policy-link" onclick="openPolicy('privacy')">Política de Privacidade</a>
+                <a href="#faq">FAQ</a>
+            </div>
+<!--
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <p><i class="fas fa-map-marker-alt" style="color:var(--primary); width:20px;"></i> Rua das Inovações, 123</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary); width:20px;"></i> contato@3dprintstudio.com</p>
+            </div>
+-->
+
+             <div class="footer-col">
+                <h3>Contato</h3>
+                <div class="social-icons">
+                    <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5511999999999" class="whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-bottom">&copy; 2024 3D Print Studio. Todos os direitos reservados.</div>
+    </footer>
+
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-gallery">
+                <div class="main-img-container" id="zoom-container">
+                    <img src="" id="modal-main-img" alt="Produto">
+                </div>
+                <div class="thumbnails" id="modal-thumbs"></div>
+            </div>
+
+            <div class="modal-info">
+                <span class="modal-badge" id="modal-cat-badge">Categoria</span>
+                <h2 class="modal-title" id="modal-title">Título</h2>
+                <span class="modal-price" id="modal-price">R$ 0,00</span>
+                <p class="modal-desc" id="modal-desc">Descrição</p>
+                
+                <div class="specs-box">
+                    <h4>Especificações Técnicas</h4>
+                    <ul class="specs-list" id="modal-specs-list"></ul>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <a href="#" id="modal-buy-btn" target="_blank" style="
+                    display:inline-block; 
+                    background:var(--whatsapp-green); 
+                    color:white; 
+                    padding:15px 30px; 
+                    text-decoration:none; 
+                    border-radius:50px; 
+                    font-weight:bold; 
+                    width:100%; text-align:center; 
+                    font-size:1.1rem; 
+                    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);">
+                        <i class="fab fa-whatsapp"></i> Comprar Agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="policy-modal">
+        <div class="text-modal-content">
+            <span class="close-btn" onclick="closePolicy()" style="position: sticky; top: 0; float: right;">&times;</span>
+            <div id="policy-text-area">
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

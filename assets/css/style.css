@@ -241,8 +241,13 @@ padding-bottom: 80px;
 
 
 .mat-text-box {
-    flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center;
-    position: relative; z-index: 3; /* Garante que o texto fique acima de tudo */
+    flex: 1; 
+    padding: 0 60px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    position: relative; 
+    z-index: 3; /* Garante que o texto fique acima de tudo */
 }
 
 .mat-text-box h3 {

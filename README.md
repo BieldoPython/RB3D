@@ -18,7 +18,8 @@ Site principal
 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 
 -- ICONES -- 
-https://fontawesome.com/icons/cube?f=sharp&s=solid
+SITE: https://fontawesome.com/icons/
+LOGO: https://fontawesome.com/icons/cube?f=sharp&s=solid
 
 
 -- ABA DE LOCALIZAÇÃO --
